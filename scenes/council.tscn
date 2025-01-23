@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://n730u4vqng1v"]
+[gd_scene load_steps=8 format=3 uid="uid://n730u4vqng1v"]
 
 [ext_resource type="Script" path="res://scripts/council.gd" id="1_bq7qu"]
 [ext_resource type="Texture2D" uid="uid://78njumck1xab" path="res://assests/characters/( D&K ) Characters Solid V.2.png" id="1_qxkoc"]
+[ext_resource type="PackedScene" uid="uid://25xgl1pcr3x0" path="res://interaction/interaction area/interaction_area.tscn" id="3_apc3e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33bf5"]
 atlas = ExtResource("1_qxkoc")
@@ -21,6 +22,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqd4d"]
 radius = 4.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ui17"]
+radius = 57.1402
+
 [node name="council" type="CharacterBody2D"]
 script = ExtResource("1_bq7qu")
 
@@ -32,3 +36,8 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_xqd4d")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_apc3e")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_7ui17")
